@@ -69,4 +69,5 @@ def isco88_to_isco08_ir(raw_table: pd.DataFrame) -> pd.DataFrame:
         .assign(ISCO08_Code=lambda df: df["ISCO08_Code"].replace({"510": "0510"}))
         .drop(columns="Partial")
         .ffill()
+        .drop_duplicates()
     )

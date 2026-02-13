@@ -200,7 +200,6 @@ def isco88_to_isco08_calculate_transition_weights(
     table = open_cleaned_table("isco88_to_isco08_ir")
     transition_matrix = (
         table
-        .drop_duplicates()
         .assign(value=1)
         .set_index(["ISCO88_Code", "ISCO08_Code"])
         .loc[:, "value"]
